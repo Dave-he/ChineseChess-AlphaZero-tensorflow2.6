@@ -1,0 +1,9 @@
+h5py
+tensorflow
+tensorflow-tensorboard
+Keras
+numpy
+pandas
+pygame
+requests
+tqdm
