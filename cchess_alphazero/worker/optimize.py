@@ -24,10 +24,11 @@ from cchess_alphazero.environment.lookup_tables import Winner, ActionLabelsRed, 
 from cchess_alphazero.lib.tf_util import set_session_config
 from cchess_alphazero.lib.web_helper import http_request
 
-from keras.optimizers import SGD
-from keras.callbacks import TensorBoard
-# from keras.utils import multi_gpu_model
-import keras.backend as K
+from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.callbacks import TensorBoard
+# from tensorflow.keras.utils import multi_gpu_model
+import tensorflow.keras.backend as K
+
 
 logger = getLogger(__name__)
 

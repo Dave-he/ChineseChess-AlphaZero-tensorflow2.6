@@ -11,7 +11,7 @@ from keras import Model
 from keras.layers.convolutional import Conv2D
 from keras.layers.merge import Add
 
-from tensorflow.keras.layers import (
+from keras.layers import (
     BatchNormalization, Activation, Flatten, Dense
 )
 from keras.regularizers import l2

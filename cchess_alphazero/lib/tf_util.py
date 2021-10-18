@@ -7,8 +7,10 @@ def set_session_config(per_process_gpu_memory_fraction=None, allow_growth=None, 
 
     :return:
     """
-    import tensorflow as tf
-    import keras.backend as K
+    import tensorflow.compat.v1 as tf
+    tf.disable_v2_behavior()
+
+    import tensorflow.keras.backend as K
 
     config = tf.ConfigProto(
         gpu_options=tf.GPUOptions(

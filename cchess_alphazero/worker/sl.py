@@ -18,9 +18,9 @@ from cchess_alphazero.environment.env import CChessEnv
 from cchess_alphazero.environment.lookup_tables import ActionLabelsRed, flip_policy, flip_move
 from cchess_alphazero.lib.tf_util import set_session_config
 
-from keras.optimizers import Adam
-from keras.callbacks import TensorBoard
-import keras.backend as K
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import TensorBoard
+import tensorflow.keras.backend as K
 
 logger = getLogger(__name__)
 
