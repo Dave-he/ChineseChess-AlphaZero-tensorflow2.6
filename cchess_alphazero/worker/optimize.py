@@ -24,10 +24,10 @@ from cchess_alphazero.environment.lookup_tables import Winner, ActionLabelsRed, 
 from cchess_alphazero.lib.tf_util import set_session_config
 from cchess_alphazero.lib.web_helper import http_request
 
-from tensorflow.keras.optimizers import SGD
-from tensorflow.keras.callbacks import TensorBoard
+from keras.optimizers import SGD
+from keras.callbacks import TensorBoard
 # from keras.utils import multi_gpu_model
-import tensorflow.keras.backend as K
+import keras.backend as K
 
 logger = getLogger(__name__)
 
@@ -127,7 +127,7 @@ class OptimizeWorker:
         return steps
 
     def compile_model(self):
-        self.opt = SGD(learning_rate=0.02, momentum=self.config.trainer.momentum)
+        self.opt = SGD(lr=0.02, momentum=self.config.trainer.momentum)
         losses = ['categorical_crossentropy', 'mean_squared_error']
         if self.config.opts.use_multiple_gpus:
             self.mg_model = multi_gpu_model(self.model.model, gpus=self.config.opts.gpu_num)
@@ -143,7 +143,7 @@ class OptimizeWorker:
 
         lr = self.decide_learning_rate(total_steps)
         if lr:
-            K.set_value(self.opt.learning_rate, lr)
+            K.set_value(self.opt.lr, lr)
             logger.debug(f"total step={total_steps}, set learning rate to {lr}")
 
     def fill_queue(self):
@@ -194,9 +194,9 @@ class OptimizeWorker:
     def decide_learning_rate(self, total_steps):
         ret = None
 
-        for step, learning_rate in self.config.trainer.lr_schedules:
+        for step, lr in self.config.trainer.lr_schedules:
             if total_steps >= step:
-                ret = lrlearning_rate
+                ret = lr
         return ret
 
     def try_reload_model(self):

@@ -3,14 +3,18 @@ import json
 import os
 from logging import getLogger
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
-from tensorflow.keras import Input
-from tensorflow.keras import Model
+from keras import Input
+from keras import Model
+from keras.layers.convolutional import Conv2D
+from keras.layers.merge import Add
+
 from tensorflow.keras.layers import (
-    BatchNormalization, SeparableConv2D, MaxPooling2D, Activation, Flatten, Dropout, Dense, Conv2D,Add
+    BatchNormalization, Activation, Flatten, Dense
 )
-from tensorflow.keras.regularizers import l2
+from keras.regularizers import l2
 
 from cchess_alphazero.agent.api import CChessModelAPI
 from cchess_alphazero.config import Config
@@ -98,7 +102,7 @@ class CChessModel:
                 self.model = Model.from_config(json.load(f))
             self.model.load_weights(weight_path)
             self.digest = self.fetch_digest(weight_path)
-            self.graph = tf.Graph().as_default()
+            self.graph = tf.get_default_graph()
             logger.debug(f"loaded model digest = {self.digest}")
             return True
         else:

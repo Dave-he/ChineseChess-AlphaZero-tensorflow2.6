@@ -3,12 +3,12 @@
 block_cipher = None
 
 a = Analysis(['play_games.py'],
-             pathex=['D:\\ChineseChess-AlphaZero'],
+             pathex=['C:\\Users\\niuhe\\Desktop\\ChineseChess-AlphaZero-master'],
              binaries=[],
              datas=[
-                ('D:\\ChineseChess-AlphaZero\\cchess_alphazero\\play_games\\images\\WOOD.GIF', 'cchess_alphazero\\play_games\\images'),
-                ('D:\\ChineseChess-AlphaZero\\cchess_alphazero\\play_games\\PingFang.ttc', 'cchess_alphazero\\play_games'),
-                ('D:\\ChineseChess-AlphaZero\\cchess_alphazero\\play_games\\images\\WOOD\\*.GIF', 'cchess_alphazero\\play_games\\images\\WOOD')
+                ('C:\\Users\\niuhe\\Desktop\\ChineseChess-AlphaZero-master\\cchess_alphazero\\play_games\\images\\WOOD.GIF', 'cchess_alphazero\\play_games\\images'),
+                ('C:\\Users\\niuhe\\Desktop\\ChineseChess-AlphaZero-master\\cchess_alphazero\\play_games\\PingFang.ttc', 'cchess_alphazero\\play_games'),
+                ('C:\\Users\\niuhe\\Desktop\\ChineseChess-AlphaZero-master\\cchess_alphazero\\play_games\\images\\WOOD\\*.GIF', 'cchess_alphazero\\play_games\\images\\WOOD')
               ],
              hiddenimports=[],
              hookspath=[],

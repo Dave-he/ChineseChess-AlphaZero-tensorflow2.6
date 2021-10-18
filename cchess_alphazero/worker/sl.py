@@ -18,9 +18,9 @@ from cchess_alphazero.environment.env import CChessEnv
 from cchess_alphazero.environment.lookup_tables import ActionLabelsRed, flip_policy, flip_move
 from cchess_alphazero.lib.tf_util import set_session_config
 
-from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.callbacks import TensorBoard
-import tensorflow.keras.backend as K
+from keras.optimizers import Adam
+from keras.callbacks import TensorBoard
+import keras.backend as K
 
 logger = getLogger(__name__)
 
@@ -78,7 +78,7 @@ class SupervisedWorker:
         return steps
 
     def compile_model(self):
-        self.opt = Adam(learning_rate=1e-2)
+        self.opt = Adam(lr=1e-2)
         losses = ['categorical_crossentropy', 'mean_squared_error'] # avoid overfit for supervised 
         self.model.model.compile(optimizer=self.opt, loss=losses, loss_weights=self.config.trainer.loss_weights)
 
